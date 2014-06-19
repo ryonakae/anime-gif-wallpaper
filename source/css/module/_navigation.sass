@@ -3,7 +3,10 @@
 
   .navigation-about
     cursor: pointer
-    @extend %animation
+
+    span
+      @extend %animation
 
     &:hover
-      color: $color-link
+      span
+        background-color: rgba($color-highlight, 0.7)

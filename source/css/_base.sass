@@ -7,7 +7,7 @@ html
 
 
 body
-  background-color: $bgColor-base
+  background-color: $color-base
   color: $color-base
   +fontFamily(normal)
   font-size: 1rem
@@ -32,7 +32,8 @@ a
     @extend %animation
 
   &:hover
-    color: $color-link
+    // color: $color-link
+    background-color: rgba($color-highlight, 0.7)
 
     img
       opacity: 0.7

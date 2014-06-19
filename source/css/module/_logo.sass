@@ -3,6 +3,7 @@
   height: 85px
   text-align: center
   +fontFamily(bold)
+  @extend %animation
 
   .logo-title
     +fontSize(30)
@@ -13,12 +14,10 @@
     width: 50px
     height: 2px
     background-color: $color-base
-    @extend %animation
 
   .logo-subTitle
     +fontSize(18)
     margin: 0
 
   &:hover
-    hr
-      background-color: $color-link
+    background-color: rgba($color-highlight, 0.7)
