@@ -9,9 +9,10 @@ html
 body
   background-color: $bgColor-base
   color: $color-base
-  font-family: $fontFamily-base
+  +fontFamily(normal)
   font-size: 1rem
   line-height: $lineHeight-base
+  letter-spacing: 0.07em
 
   // Text Highlight
   ::selection
@@ -39,6 +40,7 @@ a
 
 h1, h2, h3, h4, h5, h6
   line-height: $lineHeight-title
+  +fontFamily(bold)
 
 
 ul, ol

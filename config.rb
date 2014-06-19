@@ -6,11 +6,11 @@ Time.zone = "Tokyo"
 
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
-  # blog.prefix = "entry"
+  # blog.prefix = "article"
 
   blog.permalink = "{year}/{month}/{title}.html"
   # Matcher for blog source files
-  blog.sources = "entry/{year}-{month}-{day}-{title}.html"
+  blog.sources = "article/{year}-{month}-{day}-{title}.html"
   # blog.taglink = "tags/{tag}.html"
   blog.layout = "layout/layout"
   # blog.summary_separator = /(READMORE)/

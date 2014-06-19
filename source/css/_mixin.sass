@@ -96,3 +96,16 @@ $easeInOutBack: cubic-bezier(0.680, -0.550, 0.265, 1.550)
 =mediaquery-smartphone
   @media only screen and (min-width: 0px) and (max-width: $width-sp - 1)
     @content
+
+
+// font family
+=fontFamily($weight: normal)
+  @if $weight == normal
+    font-family: $fontFamily-base
+    font-weight: $fontWeight-base
+  @else if $weight == bold
+    font-family: $fontFamily-bold
+    font-weight: $fontWeight-bold
+  @else
+    font-family: $fontFamily-base
+    font-weight: $fontWeight-base

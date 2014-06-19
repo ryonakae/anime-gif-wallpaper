@@ -14,5 +14,8 @@ gem "middleman-livereload", "~> 3.1.0"
 # For feed.xml.builder
 gem "builder", "~> 3.0"
 
+# blog post summary
+gem "nokogiri"
+
 # GitHub deploy
 gem "middleman-deploy"

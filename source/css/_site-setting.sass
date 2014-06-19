@@ -1,16 +1,26 @@
 // Web Font
-// +font-face("Proxima Nova", font-files("proximanova/proximanova_regular.woff", "proximanova/proximanova_regular.ttf"), "proximanova/proximanova_regular.eot", normal, normal)
-// +font-face("Proxima Nova", font-files("proximanova/proximanova_bold.woff", "proximanova/proximanova_bold.ttf"), "proximanova/proximanova_bold.eot", bold, normal)
+$fontName: "Proxima Nova"
+$fontFolderName: "proximanova"
+$fontFileName: "proximanova_regular"
++font-face(#{$fontName}, font-files('#{$fontFolderName}/#{$fontFileName}.woff', '#{$fontFolderName}/#{$fontFileName}.ttf'), '#{$fontFolderName}/#{$fontFileName}.eot', normal, normal)
+$fontFileName: "proximanova_bold"
++font-face(#{$fontName}, font-files('#{$fontFolderName}/#{$fontFileName}.woff', '#{$fontFolderName}/#{$fontFileName}.ttf'), '#{$fontFolderName}/#{$fontFileName}.eot', bold, normal)
 
 
 // font
-$fontSize-base: 16
-$lineHeight-base: 1.8
+$fontSize-base: 14
+$lineHeight-base: 2
 $lineHeight-title: 1.4
 
 
 // fontfamily
-$fontFamily-base: "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif
+$fontFamily-base: "Avenir-Medium", "Avenir", "Proxima Nova", Helvetica, Arial, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif
+$fontFamily-bold: "Avenir-Black", "Avenir", sans-serif
+
+
+// fontweight
+$fontWeight-base: 500
+$fontWeight-bold: 700
 
 
 // letter spacing
@@ -18,9 +28,9 @@ $fontFamily-base: "Helvetica Neue", Helvetica, Arial, "游ゴシック", YuGothi
 
 
 // fontcolor
-$color-base: #1a1a1a
+$color-base: #0e34d6
 $color-inverse: #fff
-$color-link: #1cc1da
+$color-link: lighten($color-base, 30%)
 $color-sub: #b3b3b3
 
 
@@ -31,8 +41,8 @@ $bgColor-white: #fff
 $bgColor-grey: #f2f2f2
 
 
-// bordercolor
-$borderColor-header: #f2f2f2
+// othercolor
+$color-highlight: #fff886
 
 
 // width / height

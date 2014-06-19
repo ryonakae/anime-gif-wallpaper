@@ -1,1 +1,12 @@
-.l-header
+header.l-header
+  .logo
+    = link_to data.site.url do
+      h1.logo-title #{data.site.title}
+      hr
+      p.logo-subTitle #{data.site.subTitle}
+
+  nav.navigation
+    ul
+      li.navigation-about About
+      li.navigation-link
+        == link_to data.site.authorWebTitle, data.site.authorWebUrl, :target => "_blank"
