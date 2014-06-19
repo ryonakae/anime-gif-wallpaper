@@ -2,22 +2,28 @@
   .main-articles
     +clearFix
 
+  .article
+    width:  (100% / 4)
+    float: left
+    margin: 0
+
+
+// Tablet
++mediaquery-pc
+  .l-main
     .article
       width:  (100% / 4)
-      float: left
-      margin: 0
 
 
 // Tablet
-=mediaquery-pc
++mediaquery-tablet
   .l-main
-
-
-// Tablet
-=mediaquery-tablet
-  .l-main
+    .article
+      width:  (100% / 3)
 
 
 // SmartPhone
 +mediaquery-smartphone
   .l-main
+    .article
+      width:  (100% / 1)

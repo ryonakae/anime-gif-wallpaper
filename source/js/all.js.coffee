@@ -39,7 +39,7 @@ $ ->
     aspectHeight = 16
     article = $(".article")
     articleWidth = article.width()
-    articleHeight = articleWidth * (16 / 9)
+    articleHeight = Math.ceil(articleWidth * (16 / 9))
 
     article.css({ "height" : articleHeight })
 
@@ -94,10 +94,12 @@ $ ->
   articleImgShow = ->
 
 
+  # ready
+  # articleImgLazyLoad()
+  articleHeightResize()
+
   # load
   $(window).on "load", ->
-    # articleImgLazyLoad()
-    articleHeightResize()
     articleImgResize()
     # articleImgShow()
 
