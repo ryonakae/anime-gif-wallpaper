@@ -68,6 +68,12 @@ $default-animation-fill-mode: none !default
 =animation-fill-mode($fill-mode: $default-animation-fill-mode)
   +experimental(animation-fill-mode, unquote($fill-mode), $animation-support...)
 
+=animation-iteration-count($iteration-count: $default-animation-iteration-count)
+  +experimental(animation-iteration-count, unquote($iteration-count), $animation-support...)
+
+=animation-play-state($play-state: $default-animation-play-state)
+  +experimental(animation-play-state, unquote($play-state), $animation-support...)
+
 // animation all-in-one shorthand
 
 =single-animation($name: $default-animation-name, $duration: $default-animation-duration, $function: $default-animation-function, $delay: $default-animation-delay)

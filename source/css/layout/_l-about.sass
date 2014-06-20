@@ -1,0 +1,27 @@
+.l-about
+  opacity: 0
+  visibility: hidden
+  @extend %animation
+  +transition-duration(500ms)
+
+  .about-overlay
+    position: fixed
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    z-index: 1000
+
+  .about-text
+    position: fixed
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    margin: auto
+    z-index: 1001
+
+
+  &.is-shown
+    opacity: 1
+    visibility: visible

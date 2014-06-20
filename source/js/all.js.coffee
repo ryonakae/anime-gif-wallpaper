@@ -5,6 +5,9 @@
 
 
 $ ->
+  ###
+  Set Function
+  ###
   # addLoader
   $.fn.addLoader = ->
     @.parent().addClass("imgLoading")
@@ -91,17 +94,62 @@ $ ->
 
 
   # article image show
-  articleImgShow = ->
+  # articleImgShow = ->
 
 
+  # backtop
+  backTop = ->
+    $(".footer-backtop").click ->
+      $("html, body").stop().animate(scrollTop : 0, 1000, "easeInOutCubic")
+
+
+  # autopager
+  articleAutoPager = ->
+    maxPage = $(".l-pager").attr("data-maxpage")
+
+    $.autopager({
+      content: ".autopagerize_page_element",
+      link: ".pager-next a",
+      autoLoad: true,
+      start: (current, next) ->
+        $(".l-loader").fadeIn(400)
+      ,
+      load: (current, next) ->
+        $(".autopagerize_page_element").imagesLoaded ->
+          articleHeightResize()
+          articleImgResize()
+          setTimeout ->
+            $(".main-articles").transition "opacity" : 1, 800
+            $(".l-loader").fadeOut(400)
+          , 1000
+    })
+
+
+  # about popup
+  aboutPopUp = ->
+    $(".l-header .navigation-about").on "click", ->
+      $(".l-about").addClass("is-shown")
+      $(".logo").addClass("is-hidden")
+
+    $(".l-about .about-overlay, .l-about .about-close").on "click", ->
+      $(".l-about").removeClass("is-shown")
+      $(".logo").removeClass("is-hidden")
+
+
+  ###
+  Do Function
+  ###
   # ready
   # articleImgLazyLoad()
   articleHeightResize()
+  backTop()
+  aboutPopUp()
 
   # load
   $(window).on "load", ->
     articleImgResize()
     # articleImgShow()
+    articleAutoPager()
 
   # resize
   $(window).on "resize", ->

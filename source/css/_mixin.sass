@@ -82,14 +82,24 @@ $easeInOutBack: cubic-bezier(0.680, -0.550, 0.265, 1.550)
 
 
 // Media Queries
+// PC Large
+=mediaquery-pc-large
+  @media only screen and (min-width: $width-pc-large)
+    @content
+
 // PC
 =mediaquery-pc
-  @media only screen and (min-width: $width-pc)
+  @media only screen and (min-width: $width-pc) and (max-width: $width-pc-large - 1)
     @content
 
 // Tablet
 =mediaquery-tablet
-  @media only screen and (min-width: $width-sp) and (max-width: $width-pc - 1)
+  @media only screen and (min-width: $width-sp-large) and (max-width: $width-pc - 1)
+    @content
+
+// SmartPhone Large
+=mediaquery-smartphone-large
+  @media only screen and (min-width: $width-sp) and (max-width: $width-sp-large - 1)
     @content
 
 // SmartPhone

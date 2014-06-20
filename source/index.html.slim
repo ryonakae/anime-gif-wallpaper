@@ -1,9 +1,10 @@
 ---
 pageable: true
-per_page: 12
+per_page: 8
 ---
 
 
+/ main
 .l-main
   / articles
   .main-articles.autopagerize_page_element
@@ -28,11 +29,48 @@ per_page: 12
 
 / pager
 - if paginate
-  .l-pager
+  .l-pager(data-maxpage="#{num_pages}")
     - if prev_page
       p
         == link_to "Previous page", prev_page
 
     - if next_page
-      p
+      p.pager-next
         == link_to "Next page", next_page, :rel => "next"
+
+
+/ loader
+.l-loader
+  .loader
+    p.loader-text
+      | loading
+      span .
+      span .
+      span .
+
+
+/ about
+.l-about
+  .about
+    .about-overlay
+    .about-text
+      article
+        h1.text-title About
+        ul
+          li Animation Gif Wallpaper for SmartPhone.
+          li Resolution is 640x1136. (Apple iPhone 5s ready)
+          li Required Jailbreak.
+          li #{link_to "Source: GitHub", "", :target => "_blank"}
+
+        h2 Naka-No-Hito
+        ul
+          li #{link_to "RYO NAKAE", "", :target => "_blank"}
+          li #{link_to "Twitter", "", :target => "_blank"}
+          li #{link_to "Dribbble", "", :target => "_blank"}
+          li #{link_to "JAYPEG", "", :target => "_blank"}
+          li #{link_to "GitHub", "", :target => "_blank"}
+
+      .about-close
+        .close-border
+          .close-border-left
+          .close-border-right

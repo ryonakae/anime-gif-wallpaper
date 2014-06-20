@@ -3,6 +3,7 @@
   height: 85px
   text-align: center
   +fontFamily(bold)
+  visibility: visible
   @extend %animation
 
   .logo-title
@@ -21,3 +22,8 @@
 
   &:hover
     background-color: rgba($color-highlight, 0.7)
+
+
+  &.is-hidden
+    opacity: 0
+    visibility: hidden

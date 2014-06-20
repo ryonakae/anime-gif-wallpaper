@@ -1,0 +1,65 @@
+.about
+  .about-overlay
+    background-color: rgba($color-base, 0.6)
+
+  .about-text
+    background-color: #fff
+    width: 500px
+    height: 500px
+    padding: 50px
+
+    .text-title
+      +fontSize(20)
+      background-color: rgba($color-highlight, 0.7)
+      display: inline-block
+      margin-top: 0
+
+    a
+      text-decoration: underline
+
+    h2
+      +fontSize(15)
+      margin-top: 3em
+
+  .about-close
+    position: absolute
+    width: 40px
+    height: 40px
+    right: 20px
+    top: 20px
+    cursor: pointer
+    @extend %animation
+
+    .close-border
+      width: 100%
+      margin-top: 20px
+
+    .close-border-left,
+    .close-border-right
+      width: 40px
+      height: 1px
+      background-color: $color-base
+
+    .close-border-left
+      +rotate(45deg)
+    .close-border-right
+      +rotate(-45deg)
+
+    &:hover
+      background-color: rgba($color-highlight, 0.7)
+
+
+
+// SmartPhone Large
++mediaquery-smartphone-large
+  .about
+    .about-text
+      width: 90%
+
+
+// SmartPhone
++mediaquery-smartphone
+  .about
+    .about-text
+      width: 90%
+      padding: 30px
