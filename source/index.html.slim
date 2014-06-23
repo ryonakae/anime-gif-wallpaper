@@ -24,8 +24,6 @@ per_page: 8
               small
                 == article.date.strftime("%Y/%m/%d")
 
-            p.article-tag tags
-
 
 / pager
 - if paginate
@@ -55,20 +53,7 @@ per_page: 8
     .about-overlay
     .about-text
       article
-        h1.text-title About
-        ul
-          li Animation Gif Wallpaper for SmartPhone.
-          li Resolution is 640x1136. (Apple iPhone 5s ready)
-          li Required Jailbreak.
-          li #{link_to "Source: GitHub", "", :target => "_blank"}
-
-        h2 Naka-No-Hito
-        ul
-          li #{link_to "RYO NAKAE", "", :target => "_blank"}
-          li #{link_to "Twitter", "", :target => "_blank"}
-          li #{link_to "Dribbble", "", :target => "_blank"}
-          li #{link_to "JAYPEG", "", :target => "_blank"}
-          li #{link_to "GitHub", "", :target => "_blank"}
+        == partial 'about'
 
       .about-close
         .close-border
