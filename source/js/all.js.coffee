@@ -38,13 +38,13 @@ $ ->
 
   # article height
   articleHeightResize = ->
-    aspectWidth = 9
-    aspectHeight = 16
     article = $(".article")
-    articleWidth = article.width()
-    articleHeight = Math.ceil(articleWidth * (16 / 9))
+    imageHeight = $(".article-image").height()
 
-    article.css({ "height" : articleHeight })
+    if $(window).height() > imageHeight
+      article.css({ "height" : $(window).height() })
+    else
+      article.css({ "height" : imageHeight + 100 })
 
 
   # img resize
@@ -90,7 +90,11 @@ $ ->
 
   articleImgResize = ->
     $(".l-main .article").each ->
-      $(@).find("img").imgResize()
+      $(@).find(".article-image .image-gif img")
+        .imgResize()
+        .transition "opacity" : 1, 600, ->
+          $(@).closest(".article-image").find(".image-flame")
+          .addClass("is-animate")
 
 
   # article image show
@@ -110,7 +114,7 @@ $ ->
     $.autopager({
       content: ".autopagerize_page_element",
       link: ".pager-next a",
-      autoLoad: true,
+      autoLoad: false,
       start: (current, next) ->
         $(".l-loader").fadeIn(400)
       ,
@@ -122,7 +126,14 @@ $ ->
             $(".main-articles").transition "opacity" : 1, 800
             $(".l-loader").fadeOut(400)
           , 1000
+
+        if current.page >= maxPage
+          $(".pager-next a").hide()
     })
+
+    $(".pager-next a").on "click", ->
+      $.autopager('load')
+      return false
 
 
   # about popup

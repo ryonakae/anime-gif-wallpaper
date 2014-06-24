@@ -1,11 +1,15 @@
 .l-header
   .logo
     position: fixed
-    z-index: 100
-    top: 50%
-    left: 50%
-    margin-left: -(330 / 2) + px
-    margin-top: -(85 / 2) + px
+    margin: auto
+    width: 70px
+    height: 360px
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+
+    z-index: 10
 
   .navigation
     position: fixed
@@ -52,9 +56,10 @@
   .l-header
     .logo
       position: absolute
+      +scale(0.7, 0.7)
 
     .navigation
-      top: 10px
+      top: 15px
 
       .navigation-about
         left: 20px
@@ -68,9 +73,10 @@
   .l-header
     .logo
       position: absolute
+      +scale(0.7, 0.7)
 
     .navigation
-      top: 10px
+      top: 15px
 
       .navigation-about
         left: 20px

@@ -1,5 +1,6 @@
 .footer
   +fontFamily(bold)
+  text-transform: uppercase
 
   .footer-copyright
     +fontSize(10)
@@ -11,6 +12,5 @@
     span
       @extend %animation
 
-    &:hover
-      span
-        background-color: rgba($color-highlight, 0.7)
+      &:hover
+        opacity: 0.7

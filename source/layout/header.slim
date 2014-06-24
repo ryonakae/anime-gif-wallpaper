@@ -1,9 +1,7 @@
 header.l-header
-  = link_to data.site.url do
-    .logo
-        h1.logo-title #{data.site.title}
-        hr
-        p.logo-subTitle #{data.site.subTitle}
+  h1.logo
+    = link_to data.site.url do
+      == partial 'layout/logo'
 
   nav.navigation
     ul

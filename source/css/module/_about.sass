@@ -1,24 +1,36 @@
 .about
   .about-overlay
-    background-color: rgba($color-base, 0.6)
+    background-color: rgba($bgColor-white, 0.9)
 
   .about-text
-    background-color: #fff
+    background-color: $color-base
     width: 500px
     padding: 50px
+    color: $color-inverse
 
     .text-title
       +fontSize(20)
-      background-color: rgba($color-highlight, 0.7)
       display: inline-block
       margin-top: 0
+      text-transform: uppercase
 
     a
       text-decoration: underline
+      color: $color-inverse
+
+      &:hover
+        opacity: 0.7
 
     h2
-      +fontSize(15)
-      margin-top: 3em
+      +fontSize(17)
+      margin-top: 2.5em
+      text-transform: uppercase
+
+    p
+      margin: 0
+
+    ul
+      margin: 0
 
   .about-close
     position: absolute
@@ -37,15 +49,12 @@
     .close-border-right
       width: 40px
       height: 1px
-      background-color: $color-base
+      background-color: $color-inverse
 
     .close-border-left
       +rotate(45deg)
     .close-border-right
       +rotate(-45deg)
-
-    &:hover
-      background-color: rgba($color-highlight, 0.7)
 
 
 
