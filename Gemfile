@@ -21,3 +21,6 @@ gem "nokogiri"
 
 # GitHub deploy
 gem "middleman-deploy"
+
+# Autoprefixer
+gem "middleman-autoprefixer", "~> 0.2.3"

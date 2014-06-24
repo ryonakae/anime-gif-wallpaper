@@ -25,7 +25,7 @@ activate :blog do |blog|
 
   # Enable pagination
   blog.paginate = true
-  blog.per_page = 12
+  blog.per_page = 4
   blog.page_link = "page/{num}"
 end
 
@@ -110,6 +110,9 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+
+  # Autoprefixer
+  activate :autoprefixer, browsers: ['last 2 versions', 'ie 9']
 end
 
 # Deploy
