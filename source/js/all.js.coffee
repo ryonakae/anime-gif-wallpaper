@@ -88,13 +88,19 @@ $ ->
         "left" : imgLeft
       })
 
-  articleImgResize = ->
+  articleImgResizeInitial = ->
     $(".l-main .article").each ->
       $(@).find(".article-image .image-gif img")
         .imgResize()
         .transition "opacity" : 1, 600, ->
           $(@).closest(".article-image").find(".image-flame")
           .addClass("is-animate")
+
+  articleImgResize = ->
+    $(".l-main .article").each ->
+      $(@).find(".article-image .image-gif img")
+        .imgResize()
+        .transition "opacity" : 1, 600
 
 
   # article image show
@@ -158,7 +164,7 @@ $ ->
 
   # load
   $(window).on "load", ->
-    articleImgResize()
+    articleImgResizeInitial()
     # articleImgShow()
     articleAutoPager()
 

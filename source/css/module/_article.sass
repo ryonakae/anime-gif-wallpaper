@@ -8,20 +8,18 @@
     stroke-dashoffset: 600
     fill: rgba(0,0,0,0)
     stroke-width: 1
-    // fill: $color-base
-    // stroke-width: 0
   100%
     stroke-dashoffset: 0
     fill: $color-base
     stroke-width: 0
 
-+keyframes(stroke-delay)
++keyframes(stroke-little)
   0%
     stroke-dashoffset: 1000
     fill: rgba(0,0,0,0)
     stroke-width: 1
   80%
-    stroke-dashoffset: 300
+    stroke-dashoffset: 600
     fill: rgba(0,0,0,0)
     stroke-width: 1
   100%
@@ -75,42 +73,51 @@
     display: none
 
   &:first-child
-    .image-flame
-      svg path
-        fill: rgba(0,0,0,0)
-
     .image-flame.is-animate
-      svg path:not(.svg-delay)
-        stroke: $color-base
-        stroke-dasharray: 3000
-        stroke-dashoffset: 3000
-        fill: rgba(0,0,0,0)
+      svg
+        path
+          stroke: $color-base
+          fill: rgba(0,0,0,0)
+          +animation-timing-function(ease-in)
+          +animation-fill-mode(forwards)
 
-        +animation-name(stroke)
-        +animation-duration(2.5s)
-        +animation-timing-function(ease-in)
-        // +animation-iteration-count(infinite)
-        +animation-fill-mode(forwards)
+      svg
+        path:not(.stroke-little)
+          stroke-dasharray: 3000
+          stroke-dashoffset: 3000
+          +animation-name(stroke)
+          +animation-duration(2000ms)
 
-      svg path.svg-delay
-        stroke: $color-base
-        stroke-dasharray: 1000
-        stroke-dashoffset: 1000
-        fill: rgba(0,0,0,0)
+      svg
+        path.stroke-little
+          stroke-dasharray: 1000
+          stroke-dashoffset: 1000
+          +animation-name(stroke-little)
+          +animation-duration(1800ms)
 
-        +animation-name(stroke-delay)
-        +animation-duration(1.5s)
-        +animation-timing-function(ease-in)
-        // +animation-iteration-count(infinite)
-        +animation-fill-mode(forwards)
-        +animation-delay(2.2s)
+      // delay
+      svg
+        @for $i from 1 through 10
+          *:nth-child(#{$i})
+            +animation-delay(#{($i - 1) * 300}ms)
 
 
 // SmartPhone Large
 +mediaquery-smartphone-large
   .article
     .article-image
-      width: 100%
+      width: 381 * 0.8 + px
+      height: 787 * 0.8 + px
+
+    .image-flame
+      width: 381 * 0.8 + px
+      height: 787 * 0.8 + px
+
+    .image-gif
+      width: 320 * 0.8 + px
+      height: 568 * 0.8 + px
+      top: 107 * 0.8 + px
+      left: 32 * 0.8 + px
 
 
 // SmartPhone
