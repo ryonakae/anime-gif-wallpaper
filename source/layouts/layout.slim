@@ -20,13 +20,13 @@ html lang="ja" prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fb
     meta name="viewport" content="width=device-width, maximum-scale=1.0"
 
     / OGP
-    meta property="fb:admins" content="#"
-    meta property="fb:app_id" content="#"
+    meta property="fb:admins" content="#{data.site.authorFbId}"
+    / meta property="fb:app_id" content="#"
     meta property="og:url" content="#{data.site.url}#{url}"
     meta property="og:type" content="#{type}"
     meta property="og:title" content="#{title}#{data.site.title}"
     meta property="og:locale" content="ja_JP"
-    meta property="og:image" content="#"
+    / meta property="og:image" content="#"
     meta property="og:description" content="#{description}"
     meta property="og:site_name" content="#{data.site.title}"
     / meta property="article:publisher" content="#"
@@ -37,7 +37,7 @@ html lang="ja" prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fb
     meta name="twitter:url" value="#{data.site.url}#{url}"
     meta name="twitter:card" value="summary_large_image"
     meta name="twitter:title" value="#{title}#{data.site.title}"
-    meta name="twitter:image" value="#"
+    / meta name="twitter:image" value="#"
     meta name="twitter:description" value="#{description}"
 
     == favicon_tag "favicon.ico"
