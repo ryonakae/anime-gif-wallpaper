@@ -6,13 +6,13 @@ Time.zone = "Tokyo"
 
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
-  # blog.prefix = "article"
+  # blog.prefix = "blog"
 
   blog.permalink = "{year}/{month}/{title}.html"
   # Matcher for blog source files
   blog.sources = "article/{year}-{month}-{day}-{title}.html"
   # blog.taglink = "tags/{tag}.html"
-  blog.layout = "layout/layout"
+  blog.layout = "layout"
   # blog.summary_separator = /(READMORE)/
   # blog.summary_length = 250
   # blog.year_link = "{year}.html"
@@ -71,9 +71,7 @@ end
 activate :automatic_image_sizes
 
 # Reload the browser automatically whenever files change
-configure :development do
-  activate :livereload
-end
+activate :livereload
 
 # Methods defined in the helpers block are available in templates
 # helpers do
@@ -82,16 +80,15 @@ end
 #   end
 # end
 
-# Slim Options
-require 'slim'
-set :slim, { :pretty => true, :sort_attrs => false, :format => :html5 }
-
 # Directory Settings
 set :css_dir, 'css'
 set :js_dir, 'js'
 set :images_dir, 'img'
 set :fonts_dir, 'font'
-set :layouts_dir, 'layout'
+set :layouts_dir, 'layouts'
+
+# Slim Options
+set :slim, { :pretty => true, :sort_attrs => false, :format => :html5 }
 
 # Build-specific configuration
 configure :build do
@@ -100,6 +97,9 @@ configure :build do
 
   # Minify Javascript on build
   activate :minify_javascript
+
+  # Minify HTML
+  activate :minify_html, :remove_quotes => false, :remove_intertag_spaces => true
 
   # Enable cache buster
   # activate :asset_hash
@@ -113,6 +113,9 @@ configure :build do
 
   # Autoprefixer
   activate :autoprefixer, browsers: ['last 2 versions', 'ie 9']
+
+  # gzip
+  activate :gzip
 end
 
 # Deploy

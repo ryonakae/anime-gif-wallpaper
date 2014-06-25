@@ -1,5 +1,4 @@
 ---
-layout: layout
 pageable: true
 per_page: 4
 ---
@@ -9,7 +8,7 @@ per_page: 4
 .l-main
   / articles
   .main-articles.autopagerize_page_element
-    - page_articles.each_with_index do |article, i|
+    - page_articles.each_with_index do |article|
       article.article
         figure.article-image
           figure.image-flame
@@ -58,7 +57,7 @@ per_page: 4
     .about-overlay
     .about-text
       article
-        == partial 'layout/about'
+        == partial 'layouts/about'
 
       .about-close
         .close-border
