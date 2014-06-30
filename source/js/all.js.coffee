@@ -39,17 +39,17 @@ $ ->
     imageHeight = $(".article-image").height()
 
     if $(window).height() > imageHeight
-      article.css({ "height" : $(window).height() })
+      article.css "height" : $(window).height()
     else
-      article.css({ "height" : imageHeight + 100 })
+      article.css "height" : imageHeight + 100
 
 
   # img resize
   $.fn.imgResize = (options) ->
-    options = $.extend({
-      area : $(@).parent(),
+    options = $.extend
+      area : $(@).parent()
       type : "both" # horizontal, vertical, both
-    }, options)
+    , options
 
     areaWidth = $(options.area).width()
     areaHeight = $(options.area).height()
@@ -66,24 +66,21 @@ $ ->
     imgLeft = Math.floor((setWidth - areaWidth) / -2)
 
     if options.type == "horizontal"
-      img.css({
-        "width" : setWidth,
-        "height" : setHeight,
+      img.css
+        "width" : setWidth
+        "height" : setHeight
         "left" : imgLeft
-      })
     else if options.type == "vertical"
-      img.css({
-        "width" : setWidth,
-        "height" : setHeight,
+      img.css
+        "width" : setWidth
+        "height" : setHeight
         "top" : imgTop
-      })
     else
-      img.css({
-        "width" : setWidth,
-        "height" : setHeight,
-        "top" : imgTop,
+      img.css
+        "width" : setWidth
+        "height" : setHeight
+        "top" : imgTop
         "left" : imgLeft
-      })
 
   articleImgResizeInitial = ->
     $(".l-main .article").each ->
@@ -103,7 +100,7 @@ $ ->
   # backtop
   backTop = ->
     $(".footer-backtop").click ->
-      $("html, body").stop().animate(scrollTop : 0, 1000, "easeInOutCubic")
+      $("html, body").stop().animate scrollTop : 0, 1000, "easeInOutCubic"
 
 
   articleAutoPager = ->
