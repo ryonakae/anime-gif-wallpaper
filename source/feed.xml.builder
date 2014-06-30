@@ -1,7 +1,7 @@
 xml.instruct!
 xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
   site_url = "http://ryonakae.github.io/tategaki-gif/"
-  xml.title "TATENAGA GIF"
+  xml.title "Tatenaga GIF"
   xml.subtitle "GIF longer than is wide"
   xml.id URI.join(site_url, blog.options.prefix.to_s)
   xml.link "href" => URI.join(site_url, blog.options.prefix.to_s)

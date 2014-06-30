@@ -121,6 +121,7 @@ $ ->
         success: (out) ->
           result = $(out).find("#articles").find(".article").unwrap()
           nextLink = $(out).find(".pager-next a").attr('href')
+          # console.log getAbsolutePath(nextLink)
 
           result.css "opacity" : 0
           result.each ->
@@ -135,10 +136,14 @@ $ ->
             , 1000
 
           if nextLink != undefined
-            $(".pager-next a").attr("href", nextLink)
+            $(".pager-next a").attr("href", getAbsolutePath(nextLink))
           else
             $(".pager-next a").hide()
       })
+
+      # convert absolute path
+      getAbsolutePath = (path) ->
+        $("<a>").attr("href", path).get(0).href
 
 
   # about popup

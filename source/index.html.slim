@@ -38,7 +38,8 @@ per_page: 4
 
     - if next_page
       p.pager-next
-        == link_to "Next page", next_page, :rel => "next"
+        / == link_to "Next page", next_page, :rel => "next"
+        == link_to "Next page", "./page/#{page_number+1}", :rel => "next"
 
 
 / loader
