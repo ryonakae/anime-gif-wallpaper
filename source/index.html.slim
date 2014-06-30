@@ -7,7 +7,7 @@ per_page: 4
 / main
 .l-main
   / articles
-  .main-articles.autopagerize_page_element
+  .main-articles#articles
     - page_articles.each_with_index do |article|
       article.article
         figure.article-image
@@ -16,7 +16,7 @@ per_page: 4
 
           figure.image-gif
             .image-gif-inner
-              == image_tag "#{article.data.image}", :"data-original" => "#{article.data.image}", :alt => "#{article.title}"
+              == image_tag article.data.image, :alt => "#{article.title}"
 
         .info-wrapper
           h1.article-title

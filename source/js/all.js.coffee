@@ -30,10 +30,7 @@ $ ->
 
   articleImgLazyLoad = ->
     img = $(".article").find("img")
-    img.addLoader()
-    setTimeout ->
-      img.lazyLoad()
-    , 100
+    img.lazyLoad()
 
 
   # article height
@@ -103,43 +100,45 @@ $ ->
         .transition "opacity" : 1, 600
 
 
-  # article image show
-  # articleImgShow = ->
-
-
   # backtop
   backTop = ->
     $(".footer-backtop").click ->
       $("html, body").stop().animate(scrollTop : 0, 1000, "easeInOutCubic")
 
 
-  # autopager
   articleAutoPager = ->
-    maxPage = $(".l-pager").attr("data-maxpage")
+    $(".pager-next a").on "click", (e) ->
+      e.preventDefault()
 
-    $.autopager({
-      content: ".autopagerize_page_element",
-      link: ".pager-next a",
-      autoLoad: false,
-      start: (current, next) ->
-        $(".l-loader").fadeIn(400)
-      ,
-      load: (current, next) ->
-        $(".autopagerize_page_element").imagesLoaded ->
-          articleHeightResize()
-          articleImgResize()
-          setTimeout ->
-            $(".main-articles").transition "opacity" : 1, 800
-            $(".l-loader").fadeOut(400)
-          , 1000
+      # loader fadein
+      $(".l-loader").fadeIn(400)
 
-        if current.page >= maxPage
-          $(".pager-next a").hide()
-    })
+      # ajax get
+      $.ajax({
+        type: "GET",
+        url: $(@).attr("href") + "#articles",
+        dataType: "html",
+        success: (out) ->
+          result = $(out).find("#articles").find(".article").unwrap()
+          nextLink = $(out).find(".pager-next a").attr('href')
 
-    $(".pager-next a").on "click", ->
-      $.autopager('load')
-      return false
+          result.css "opacity" : 0
+          result.each ->
+            $(@).find(".image-gif-inner img").lazyLoad()
+
+          $("#articles").append(result).imagesLoaded ->
+            articleHeightResize()
+            articleImgResize()
+            setTimeout ->
+              result.transition "opacity" : 1, 800
+              $(".l-loader").fadeOut(400)
+            , 1000
+
+          if nextLink != undefined
+            $(".pager-next a").attr("href", nextLink)
+          else
+            $(".pager-next a").hide()
+      })
 
 
   # about popup
@@ -161,12 +160,11 @@ $ ->
   articleHeightResize()
   backTop()
   aboutPopUp()
+  articleAutoPager()
 
   # load
   $(window).on "load", ->
     articleImgResizeInitial()
-    # articleImgShow()
-    articleAutoPager()
 
   # resize
   $(window).on "resize", ->
