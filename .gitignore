@@ -22,3 +22,4 @@ Thumbs.db
 *.codekit
 *.sublime-project
 *.sublime-workspace
+/vendor
